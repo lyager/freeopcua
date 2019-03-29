@@ -28,9 +28,9 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
  xutils \
  lintian \
  pbuilder \
- reprepro
-ADD / /tmp/freeopcua
-WORKDIR /tmp/freeopcua
-RUN ./build.sh
-RUN make check
-RUN make install
+ reprepro \
+ netcat \
+ net-tools
+WORKDIR /workspace/
+EXPOSE 4840
+CMD ./example_server
